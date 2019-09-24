@@ -80,7 +80,7 @@ const ProfileQuery: FunctionComponent<Props> = ({
   <QueryRenderer<QueryTypes>
     query={graphql`
       query ProfileQuery($storyID: ID, $storyURL: String) {
-        story(id: $storyID, url: $storyURL) {
+        story: stream(id: $storyID, url: $storyURL) {
           ...ProfileContainer_story
         }
         viewer {

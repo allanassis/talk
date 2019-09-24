@@ -2486,6 +2486,12 @@ type Query {
   story(id: ID, url: String): Story
 
   """
+  stream will load a specific story that can be identified by either an ID or a
+  URL and will create the story if that feature is enabled.
+  """
+  stream(id: ID, url: String): Story
+
+  """
   stories returns filtered stories that can be paginated.
   """
   stories(
@@ -5367,7 +5373,7 @@ type Subscription {
   commentReleased returns when a Comment on a premoderated stream is approved
   """
   commentReleased(storyID: ID!): CommentReleasedPayload!
-  
+
   """
   commentReplyCreated returns when a Comment is posted in the ancestor chain of
   comments.
