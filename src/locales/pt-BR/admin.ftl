@@ -22,6 +22,7 @@ role-plural-commenter = Comentadores
 userStatus-active = Ativo
 userStatus-banned = Banido
 userStatus-suspended = Suspenso
+userStatus-premod = Sempre pré-moderado
 
 ## Navigation
 navigation-moderate = Moderação
@@ -59,6 +60,7 @@ login-signIn-passwordTextField =
 
 login-signIn-signInWithEmail = Entrar com o e-mail
 login-signIn-orSeparator = Ou
+login-signIn-forgot-password = Esqueceu sua senha?
 
 login-signInWithFacebook = Entrar com Facebook
 login-signInWithGoogle = Entrar com Google
@@ -92,6 +94,10 @@ configure-general-guidelines-explanation =
   Markdown podem ser encontradas <externalLink>aqui</externalLink>.
 configure-general-guidelines-showCommunityGuidelines = Mostrar Resumo das Diretrizes da Comunidade
 
+#### Locale
+configure-general-locale-language = Linguagem
+configure-general-locale-chooseLanguage = Selecione a linguagem para o seu Coral community.
+
 ### Sitewide Commenting
 configure-general-sitewideCommenting-title = Comentários em todo o site
 configure-general-sitewideCommenting-explanation =
@@ -118,7 +124,7 @@ configure-general-closingCommentStreams-closeCommentsAfter = Fechar Comentários
 #### Comment Length
 configure-general-commentLength-title = Tamanho do comentário
 configure-general-commentLength-maxCommentLength = Tamanho máximo do comentário
-configure-general-commentLength-setLimit = Definir um limite para a duração dos comentários em todo o site
+configure-general-commentLength-setLimit = Definir um limite de tamanho máximo e minimo de comentários em todo o site
 configure-general-commentLength-limitCommentLength = Tamanho limite do comentário
 configure-general-commentLength-minCommentLength = Tamanho Mínimo do comentário
 configure-general-commentLength-characters = Caracteres
@@ -137,7 +143,7 @@ configure-general-commentEditing-commentEditTimeFrame = Período de tempo de edi
 configure-general-commentEditing-seconds = Segundos
 
 #### Closed Stream Message
-configure-general-closedStreamMessage-title = Fechar fluxo de comentários
+configure-general-closedStreamMessage-title = Mensagem de fechamento do fluxo de comentários
 configure-general-closedStreamMessage-explanation = Escreva uma mensagem para aparecer depois que uma história for fechada para comentários.
 
 ### Organization
@@ -167,8 +173,9 @@ configure-email-smtpPortDescription = (ex. 25)
 configure-email-smtpTLSLabel = TLS
 configure-email-smtpAuthenticationLabel = Autenticação SMTP
 configure-email-smtpCredentialsHeader = credencial de email
-configure-email-smtpUsernameLabel = nome de usuário
-configure-email-smtpPasswordLabel = senha
+configure-email-smtpUsernameLabel = Nome de usuário
+configure-email-smtpPasswordLabel = Senha
+
 ### Authentication
 
 configure-auth-clientID = Client ID
@@ -363,7 +370,7 @@ moderate-navigation-pending = Pendente
 moderate-navigation-unmoderated = não moderado
 moderate-navigation-rejected = rejeitado
 
-moderate-marker-preMod = Pre-Moderado
+moderate-marker-preMod = Pré-Moderado
 moderate-marker-link = Link
 moderate-marker-bannedWord = Palavra Banida
 moderate-marker-suspectWord = Palavra Suspeita
@@ -371,6 +378,7 @@ moderate-marker-spam = Spam
 moderate-marker-spamDetected = Spam detectado
 moderate-marker-toxic = Tóxico
 moderate-marker-karma = Karma
+moderate-marker-recentHistory = Histórico recente
 moderate-marker-bodyCount = Tamanho do conteúdo
 moderate-marker-offensive = Ofensivo
 
@@ -388,6 +396,7 @@ moderate-emptyQueue-reported = Muito bem! Não há mais comentários relatados p
 moderate-emptyQueue-unmoderated = Muito bem! Todos os comentários foram moderados.
 moderate-emptyQueue-rejected = Não há comentários rejeitados.
 
+moderate-comment-edited = (editado)
 moderate-comment-inReplyTo = Responder para <username><username>
 moderate-comment-viewContext = Ver contexto
 moderate-comment-rejectButton =
@@ -422,11 +431,12 @@ moderate-searchBar-searchButton = Pesquisar
 moderate-searchBar-titleNotAvailable =
   .title = Título não disponível
 moderate-searchBar-comboBox =
-  .aria-label = Pesquise ou pular para a história
+  .aria-label = Pesquisar ou pular para a história
 moderate-searchBar-searchForm =
   .aria-label = Histórias
 moderate-searchBar-currentlyModerating =
   .title = Atualmente moderando
+moderate-searchBar-searchResults = Pesquisar resultados
 moderate-searchBar-searchResultsMostRecentFirst = Pesquisar resultados (Mais recentes primeiro)
 moderate-searchBar-moderateAllStories = Moderar todas as histórias
 moderate-searchBar-comboBoxTextField =
@@ -444,6 +454,7 @@ moderate-user-drawer-member-id =
   .title = ID do membro
 moderate-user-drawer-tab-all-comments = Todos comentários
 moderate-user-drawer-tab-rejected-comments = Rejeitados
+moderate-user-drawer-tab-notes = Notas
 moderate-user-drawer-load-more = Carregar mais
 moderate-user-drawer-all-no-comments = {$username} não enviou comentários.
 moderate-user-drawer-rejected-no-comments = {$username} não tem comentários rejeitados.
@@ -460,6 +471,9 @@ moderate-user-drawer-account-history-no-history = Nenhuma ação foi realizada n
 moderate-user-drawer-username-change = Nome de usuário alterado
 moderate-user-drawer-username-change-new = Novo:
 moderate-user-drawer-username-change-old = Antigo:
+
+moderate-user-drawer-account-history-premod-set = Sempre pré-moderado
+moderate-user-drawer-account-history-premod-removed = Removida pré-moderação
 
 moderate-user-drawer-suspension =
   Suspensão, { $value } { $unit ->
@@ -578,6 +592,7 @@ community-filter-allRoles = Todas as Funções
 community-filter-allStatuses = Todos os Status
 
 community-column-username = Nome do Usuário
+community-column-username-deleted = Deletado
 community-column-email = E-mail
 community-column-memberSince = Membro desde
 community-column-role = Função
@@ -589,7 +604,7 @@ community-role-popover =
 community-userStatus-popover =
   .description = Um menu suspenso para alterar o status do usuário
 
-community-userStatus-banUser = Banir Usário
+community-userStatus-banUser = Banir Usuário
 community-userStatus-removeBan = Remover Banimento
 community-userStatus-suspendUser = Suspender Usuário
 community-userStatus-removeSupsension = Remover Suspensão
@@ -602,7 +617,9 @@ community-banModal-consequence =
   Uma vez banido, este usuário não poderá mais comentar, usar
   reações ou relatar comentários.
 community-banModal-cancel = Cancelar
-community-banModal-banUser = Banir Usário
+community-banModal-banUser = Banir Usuário
+community-banModal-customize = Customizar mensagem de email de banimento
+
 community-suspendModal-areYouSure = Banir <strong>{ $username }</strong>?
 community-suspendModal-consequence = Uma vez banido, este usuário não poderá mais comentar, reagir ou reportar comentários
 community-suspendModal-duration-3600 = 1 hora
@@ -610,7 +627,7 @@ community-suspendModal-duration-10800 = 3 horas
 community-suspendModal-duration-86400 = 24 horas
 community-suspendModal-duration-604800 = 7 dias
 community-suspendModal-cancel = Cancelar
-community-suspendModal-suspendUser = Usuário banido
+community-suspendModal-suspendUser = Suspender usuários
 community-suspendModal-emailTemplate =
   Olá { $username },
 
@@ -619,7 +636,7 @@ community-suspendModal-emailTemplate =
 community-suspendModal-customize = Customizar o email de suspensão.
 
 community-suspendModal-success =
-  <strong>{ $username }</strong> foi banido por <strong>{ $duration }</strong>
+  <strong>{ $username }</strong> foi suspendido por <strong>{ $duration }</strong>
 
 community-suspendModal-success-close = Fechado
 community-suspendModal-selectDuration = Selecione o período de suspensão.
@@ -703,7 +720,7 @@ invite-tokenNotFound =
 
 userDetails-banned-on = <strong>Banido em </strong> { $timestamp }
 userDetails-banned-by = <strong>por</strong> { $username }
-userDetails-suspended-by = <strong>Banido por</strong> { $username }
+userDetails-suspended-by = <strong>Suspendido por</strong> { $username }
 userDetails-suspension-start = <strong>Início:</strong> { $timestamp }
 userDetails-suspension-end = <strong>Fim:</strong> { $timestamp }
 
